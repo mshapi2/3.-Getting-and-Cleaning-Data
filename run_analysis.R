@@ -4,14 +4,13 @@
 ## 2. Merge the training and the test sets to create one data set.
 ## 3. Extract only the measurements on the mean and standard deviation for each measurement. 
 ## 4. Use descriptive activity names to name the activities in the data set
-## 5. Appropriately label the data set with descriptive activity names. 
-## 6. Create a second, independent tidy data set with the average of each variable
+## 5. Create a second, independent tidy data set with the average of each variable
 ##      for each activity and each subject. 
 
 
 ## Set the workspace environment
-  dirProject<-"/Coursera/JohnsHopkins-Data-Science/3. Getting and Cleaning Data/Peer asignment . June 2 session"
-  setwd(paste(setwd("~/"),dirProject, sep="", collapse=NULL))
+##  dirProject<-"/Coursera/JohnsHopkins-Data-Science/3. Getting and Cleaning Data/Peer asignment . June 2 session"
+##  setwd(paste(setwd("~/"),dirProject, sep="", collapse=NULL))
 
   if (!"data.table" %in% installed.packages()) install.packages("data.table")
   library(data.table)
@@ -33,7 +32,7 @@
 # read the features to be used as colnames
   features<-fread("./features.txt")
   featureNames <- features$V2
-# read the train data, set column names
+# read the train data
 # NB: fread() failed  for X_train because of two leading spaces in each row
 # the dataset may be large, so use the trick from R programming
   temp <- read.table("./train/X_train.txt", nrows=100) # read small number of rows
@@ -65,7 +64,7 @@
                          names(allData), ignore.case=TRUE, value=TRUE))
   allMeanStd <- allData[, c("subject","activityCode",namesMeanStd)]
 
-## 4-5. Appropriately label the data set with descriptive activity names.
+## 4. Appropriately label the data set with descriptive activity names.
   
 # add a column with activityLabels
 # read the activity labels
@@ -76,7 +75,7 @@
 # order (easier to quickly compare with allMeansStd to see if the merge is correct)
   allActivity <- allActivity[order(allActivity$subject,allActivity$activityCode),]
   
-## 6. Create a tidy data set with the average of each variable
+## 5. Create a tidy data set with the average of each variable
 ##      for each activity and each subject.
   
 # melt prepares the data for using dcast  
