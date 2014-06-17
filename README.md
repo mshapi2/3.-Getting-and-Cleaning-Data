@@ -12,7 +12,8 @@ Prepare for future analysis a dataset with activity data recorded by a Samsung p
 #### 4. Use descriptive activity names to name the activities in the data set
 #### 5. Create a second, independent tidy data set with the average of each variable for each activity and each subject. 
 
-##### The script run_Analysis.R does the following:
+
+#### *The script run_Analysis.R does the following:*
 
 Set the workspace environment, load required libraries
 
