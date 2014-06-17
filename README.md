@@ -3,6 +3,8 @@
 
 ## Programming assignment Getting and Cleaning Data.
 
+Prepare a dataset with activity data recorded by a Smasung phone for future analysis.
+
 ### 1. Get the data set from 
 ###      http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#
 ### 2. Merge the training and the test sets to create one data set.
@@ -27,6 +29,7 @@ Set the workspace environment, load required libraries
 
 #### 3. Extract only the measurements on the mean and standard deviation for each measurement. 
 
+- Create a new dataset with columns that contain only mean and SD data
 
 #### 4. Appropriately label the data set with descriptive activity names.
   
